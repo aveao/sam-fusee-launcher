@@ -183,6 +183,17 @@ void setup()
 
     delay(100);
 
+    // Turn off all LEDs and go to sleep. To launch another payload, press the reset button on the device.
+    //delay(100);
+    //digitalWrite(PIN_LED_RXL, HIGH);
+    //digitalWrite(PIN_LED_TXL, HIGH);
+    //digitalWrite(13, LOW);
+    //SCB->SCR = SCB_SCR_SLEEPDEEP_Msk;
+    //__WFI();
+}
+
+void loop()
+{
     Serial.println("Ready! Waiting for Tegra...");
 
     while (!foundTegra)
@@ -216,16 +227,4 @@ void setup()
     usb.ctrlReq(tegraDeviceAddress, 0, USB_SETUP_DEVICE_TO_HOST | USB_SETUP_TYPE_STANDARD | USB_SETUP_RECIPIENT_INTERFACE,
         0x00, 0x00, 0x00, 0x00, 0x7000, 0x7000, usbWriteBuffer, NULL);
     Serial.println("Done!");
-
-    // Turn off all LEDs and go to sleep. To launch another payload, press the reset button on the device.
-    delay(100);
-    digitalWrite(PIN_LED_RXL, HIGH);
-    digitalWrite(PIN_LED_TXL, HIGH);
-    digitalWrite(13, LOW);
-    SCB->SCR = SCB_SCR_SLEEPDEEP_Msk;
-    __WFI();
-}
-
-void loop()
-{
 } 
