@@ -16,7 +16,7 @@ Built and tested with Arduino "IDE".
 ## Differences from atlas44's version
 
 - Converted for use with Arduino "IDE" and not platformio (because that thing's just a big pain to set up)
-- Actually does compile
+- Actually does compile (once you add the converted payload)
 - Includes useful links
 
 ## Supported boards:
